@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     static char operator;
-    static char quotes = '"';
     static String result = "";
 
     public static void main(String[] args) throws Exception {
@@ -27,28 +26,39 @@ public class Main {
         if (data0.length() > 10) System.out.println("Размер вводимых данных не удовлетворяет заданию");
         else {
             if (operator == '+') {
-                System.out.println(quotes + data0 + data1 + quotes);
+                printInQuotes(data0 + data1);
             }
             if (operator == '-') {
                 if (data0.contains(data1)) {
                     result = data0.replace(data1, "");
-                    System.out.println(quotes + result + quotes);
-                } else System.out.println(quotes + data0 + quotes);
+                    printInQuotes(result);
+                } else {
+                    printInQuotes(data0);
+                }
             }
             if (operator == '*') {
                 int stringToNumber = Integer.parseInt(data1);
                 if (stringToNumber > 10) System.out.println("Размер вводимых чисел не удовлетворяет заданию");
                 else {
-                    for (int i = 0; i < stringToNumber; i++) result += data0;
-                    if (result.length() > 40) System.out.println(quotes + result.substring(0, 40) + "...");
-                    else System.out.println(quotes + result + quotes);
+                    for (int i = 0; i < stringToNumber; i++){
+                        result += data0;
+                    }
+                    if (result.length() > 40) {
+                        printInQuotes(result.substring(0,40) + "...");
+                    }
+                    else {
+                        printInQuotes(result);
+                    }
                 }
             }
             if (operator == '/') {
                 int stringToNumber = Integer.parseInt(data1);
                 result = data0.substring(0, stringToNumber);
-                System.out.println(quotes + result + quotes);
+                printInQuotes(result);
             }
         }
+    }
+    static void printInQuotes(String text){
+        System.out.println("\""+text+"\"");
     }
 }
