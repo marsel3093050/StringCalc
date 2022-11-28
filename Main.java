@@ -8,7 +8,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input: ");
-        String input = scanner.nextLine();
+        String input = "\"" + scanner.nextLine() + "\"";
         System.out.println("Output: ");
         char[] data = new char[100];
         for (int i = 0; i < input.length(); i++) {
