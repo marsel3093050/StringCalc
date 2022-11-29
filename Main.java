@@ -27,7 +27,7 @@ public class Main {
         String data1 = massive[1].trim();
 
         if (isQuotes(data0)) {
-            data0 = data0.replace("\"", "");
+            data0 = delQuotes(data0);
 
                 if (operator == '+' && isQuotes(data1 )) {
                     printInQuotes(data0 + delQuotes(data1));
