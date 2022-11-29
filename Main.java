@@ -33,12 +33,16 @@ public class Main {
                     printInQuotes(data0 + delQuotes(data1));
                 }
                 if (operator == '-') {
+                    if (isQuotes(data1)) {
+
+
                     if (data0.contains(data1)) {
                         result = data0.replace(data1, "");
                         printInQuotes(result);
                     } else {
                         printInQuotes(data0);
                     }
+                    }else System.err.println("Ошибка ввода данных");
                 }
                 if (operator == '*') {
                     int stringToNumber = Integer.parseInt(data1);
